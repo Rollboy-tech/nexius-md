@@ -70,6 +70,7 @@ export default function startGroupHandler(sock) {
             console.log('Message in', groupMeta.subject, 'from', sender.split('@')[0], ':', sentMsg);
             async function reply(response_en, response_sw) {
                 try {
+                    console.log("🔁Replying....")
                     if (langMode === "sw") {
                         if (rep) {
                             await sock.sendMessage(groupId, { text: response_sw }, { quoted: msg });
