@@ -544,7 +544,7 @@ export default function startGroupHandler(sock) {
                 if (text.trim() === "hello" || text.trim() === "hi" || text.trim() === "hey" || text.trim() === "hellow") {
                     const response_en = "👋 Hello! We are allways togather \nWatching💬 messages if there any command included...";
                     const response_sw = "👋 Habari! Tuko pamoja\nNaangalia mazungumzo yenu kama kuna amri yeyote ndani yake..."
-                    reply(response);
+                    reply(response_en, response_sw);
                     return;
                 }
 
