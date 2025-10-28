@@ -84,8 +84,12 @@ export default function startGroupHandler(sock) {
                             await sock.sendMessage(groupId, { text: response_en });
                         }
                     }
+                    
+                    if (!langMode) {
+                        console.log("Unknown language mode, default to English");
+                    }
                 } catch (e) {
-                    console.log("Erreor while replying: ", e)
+                    console.log("Error while replying: ", e)
                 }
             }
 
