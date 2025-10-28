@@ -1,0 +1,4 @@
+auth_info/
+files/*.txt
+model/
+node_modules/

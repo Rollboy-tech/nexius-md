@@ -1,0 +1,112 @@
+{ "1": {
+  "question": "Habari na Karibu!\nMimi ni WhatsApp chatbot kutoka Rollboy Services\nNiko hapa kutoa maelezo au ufafanuzi wa msingi katika huduma za Rolloy Services\nTafadhari naomba uchague lugha yako ya msingi.\n\n Hello wellcome!\nA'm just whatsapp chatbot from rollboy services\nAm here to explein primary unstruction for services from Rollboy Services\nPlease select your prefered Language:  ",
+  "options":{
+    "1": "English",
+    "2": "Kiswahili"
+  }
+  },
+  
+  "en": {
+  "question": "Wellcome to oure services menu.\nPlease select by sendig a services number from these services"
+  },
+
+  "sw": {
+    "question": "Karibu sana je unataka kipi leo? 👋🏽\nChagua kwa kuadnika namba:",
+    "options": {
+      "1": "Huduma",
+      "2": "Msaada"
+    },
+    "next": {
+      "1": "huduma",
+      "2": "msaada"
+    }
+  },
+
+  "huduma": {
+    "question": "Karibu Sana ufurahie ndugu mteja wetu\nTafadhari chagua aina ya huduma unayohitaji:",
+    "options": {
+      "1": "Maombi ya kimtandao - _`kama vyeti, tin nk....`_",
+      "2": "Uaandaaji wa nyaraka  - _`Kama CV, Mipango ya biashara nk...`_",
+      "3": "Huduma za kidijitali - _`kama website, app, mifumo nk...`_",
+      "4": "Huduma za ubunifu  - _`kama logo, matangazo nk...`_",
+      "5": "Huduma zisizo rasmi - _`kama bot, developer services...`_"
+    },
+    "next": {
+      "1": "maombi",
+      "2": "nyaraka",
+      "3": "kidijitali",
+      "4": "ubunifu",
+      "5": "zisizo_rasmi"
+    }
+  },
+
+  "maombi": {
+    "question": "Habari chagua haduma unayotaka:",
+    "options": {
+      "1": "Cheti cha kuzaliwa",
+      "2": "Tin Namba",
+      "3": "Leseni ya biashara",
+      "4": "Usajili wa biashara",
+      "5": "Ku-Renew Leseni ya Biashara",
+      "6": "Cheti cha Kifo",
+      "7": "Uhakiki wa cheti (RITA)",
+      "8": "Loss Riport",
+      "9": "Maombi mengineyo"
+    },
+    "next": {
+      "1": "kuzaliwa",
+      "2": "tin",
+      "3": "leseni",
+      "4": "sajili-biashara",
+      "5": "renew",
+      "6": "kifo",
+      "7": "uhakiki",
+      "8": "lossreport",
+      "9": "mengineyo"
+      
+    }
+  },
+
+  "kuzaliwa": {
+    "question": "Habari tafadhari cahagua kundi la umri wa muhusika 🔌\n> Kama ni chini ya miaka 10 au zaidi:",
+    "options": {
+      "1": "Chini ya miaka 10",
+      "2": "Zaidi ya miaka 10"
+    },
+    "next": {
+      "1": "chini",
+      "2": "zaidi"
+    }
+  },
+
+  "chini": {
+    "question": "Gharama ni 25,000 anatakiwa awe na vaiambatanisho angalau vitatu kati ya hvi\n\n",
+    "options": {
+      "a": "Wasiliana na muhudumu kwa namba *+255 787 885 020* kwa ajili ya kuanza kazi. Tafadgari vuta subri ikiwa hayuko hewani."
+    },
+    "next": {
+      "a": "end"
+    }
+  },
+
+  "zaidi": {
+    "question": "Gharama ni 35,000 anatakiwa awe na documents zifuatazo",
+    "options": {
+      "1": "Ahsante",
+      "2": "Mifumo ya mtandaoni",
+      "3": "Huduma kwa wateja"
+    },
+    "next": {
+      "1": "end",
+      "2": "end",
+      "3": "end"
+    }
+  },
+
+  "tin": {
+    "question" : "Gharama ni 35,000 anatakiwa awe na documents zifuatazo",
+    "options" :{
+
+    }
+  }
+}
