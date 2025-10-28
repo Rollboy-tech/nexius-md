@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 3000;
 http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Rollboy Bot is running\n');
-    const time = new Date().toISOString();
-    console.log('Ping at: ', time);
+    const time = new Date();
+    const tzTime = new Date(time.toDateString("en-us", { timeZone: "Africa/Dar_es_salaam" }))
+    console.log('Ping at: ', tzTime);
 }).listen(PORT, () => {
     console.log(`✅ Server is running on port ${PORT}`);
 });
