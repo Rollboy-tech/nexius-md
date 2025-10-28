@@ -2,3 +2,5 @@
 files/*.txt
 model/
 node_modules/
+
+.env
