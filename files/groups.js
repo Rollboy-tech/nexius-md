@@ -188,8 +188,6 @@ export default function startGroupHandler(sock) {
                   targetUser = msg.message.extendedTextMessage.contextInfo.participant || undefined;;
             }
 
-            console.log("Target user: ", targetUser);
-
 
             // ---------------- DEBUG ----------------
             //console.log("📩 New group message");
