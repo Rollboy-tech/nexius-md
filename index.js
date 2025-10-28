@@ -5,6 +5,19 @@ import startGroupHandler from "./files/groups.js";
 import startInboxHandler from "./files/inbox.js"; // ⚡ import handler
 import { autoSyncGroups } from "./files/autoSyncGroup.js";
 import { autoSyncNewslater } from "./files/autoSyncChannel.js";
+import http from 'http';
+import 'dotenv/config';
+
+// Server to help pingig a bot
+const PORT = process.env.PORT || 3000;
+http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Rollboy Bot is running\n');
+}).listen(PORT, () => {
+    console.log(`✅ Server is running on port ${PORT}`);
+});
+
+// Readline interface for user input
 
 const rl = readline.createInterface({
     input: process.stdin,

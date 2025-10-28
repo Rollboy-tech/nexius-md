@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@whiskeysockets/baileys": "^7.0.0-rc.4",
+    "dotenv": "^17.2.3",
     "franc": "^6.2.0",
     "fs": "^0.0.1-security",
     "node-nlp": "^3.10.2"
