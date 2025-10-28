@@ -67,7 +67,7 @@ export default function startGroupHandler(sock) {
             //This function has two condition checking in sw language mode mode and en language mode
             // sw => Swahili language
             // en => English langauge
-            console.log("language mode: ", langMode)
+            console.log('Message in', groupMeta.subject, 'from', sender, ':', sentMsg);
             async function reply(response_en, response_sw) {
                 try {
                     if (langMode === "sw") {
