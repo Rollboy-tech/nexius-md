@@ -638,8 +638,8 @@ export default function startGroupHandler(sock) {
                     22. *antlink-on* - Wezesha kipengele cha anti-link kwenye kikundi\n
                     23. *antlink-off* - Zima kipengele cha anti-link kwenye kikundi\n
                     `
-                    const response_en = cleanWhite(english + getMenu("en"));
-                    const response_sw = cleanWhite(swahili + getMenu("sw"));
+                    const response_en = cleanWhite(english);
+                    const response_sw = cleanWhite(swahili);
                     reply(response_en, response_sw)
                 }
 
