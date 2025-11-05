@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+console.log(process.version);
 
 // Get current file directory
 const __filename = fileURLToPath(import.meta.url);

@@ -1,2 +1,2 @@
 # Treat all files inside auth_info as binary to prevent Git from diffing or altering them
-auth_info/** binary
+session/** binary

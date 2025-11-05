@@ -34,7 +34,7 @@ function askQuestion(query) {
 let handlerStarted = false;
 
 async function startBot() {
-    const { state, saveCreds } = await useMultiFileAuthState('auth_info');
+    const { state, saveCreds } = await useMultiFileAuthState('session');
     const { version } = await fetchLatestBaileysVersion();
 
     const sock = makeWASocket({
