@@ -48,7 +48,7 @@ export default function startGroupHandler(sock) {
             const groupMeta = await getGroupMetadata(sock, groupId); //Get a group data from group caches
             const sentMsg = ( msg.message?.conversation || msg.message?.extendedTextMessage?.text ||msg.message?.imageMessage?.caption || "").trim().toLowerCase();
 
-            // ---------------- BOT IDS ----------------
+            // *---------------- BOT IDS ----------------*
             const botLid = '98097707413683@lid'; //Bot id in group
             const botJid = cleanJid(sock.user.id);
             const ownerJid = settings.owneNumber + "@s.whatsapp.net"; // optional
@@ -158,7 +158,7 @@ export default function startGroupHandler(sock) {
                 const repliedMsgId = replied.stanzaId;
                 if (trackedMessage.has(groupId) && trackedMessage.get(groupId).has(repliedMsgId)) {
                     const type = "bot";
-                    const reason = ` ⚠ You responded to message considered as a bot 🤖 command. \n 🤨 🚫 Those bots are not allowed in this group`;
+                    const reason = ` ⚠ You responded to message considered as a bot 🤖 command. \n🤨 🚫 Those bots are not allowed in this group!`;
                     giveWarning(sock, groupId, sender, type, reason, botIsAdmin, msg, groupSettings)
                 }
             }
@@ -194,7 +194,7 @@ export default function startGroupHandler(sock) {
             }
 
 
-            // ---------------- DEBUG ----------------
+            // *---------------- DEBUG ----------------
             //console.log("📩 New group message");
             // console.log("🔹 Group ID:", groupId);
             //console.log("🤖 Bot ID:", botJid);
@@ -204,7 +204,7 @@ export default function startGroupHandler(sock) {
             //console.log("🗨  Messeji info: ", msg)
 
 
-            if (!isBotMentioned) return; // bot hajatajwa
+            if (!isBotMentioned) return; // *bot hajatajwa
 
             // ----------------SUNITIZING MESSAGE TO TEXT ----------------
             //Remove bot number in mention message and multiple trim make sure no whitespace
@@ -531,11 +531,11 @@ export default function startGroupHandler(sock) {
                 //Show bot owner info bot owner is premium user
                 if (text.includes("bot owner") || text.includes("bot creator") || text.includes("owner info") || text.includes("botowner")) {
                     const response = `👑 *Bot Owner Info*\n\n🆎 *Name:* Rollboy TZ\n📞 *Number:* +${settings.owneNumber}\n🌐 *Email:* rollboyervices@yahoo.com\n\n*Contact the owner for more info.*`;
-                    reply(response);
+                    reply(response, response);
                     return;
                 }
 
-                //Show mow time
+                /*/Show mow time
                 if (text.includes("time")) {
                    const now = new Date();
                    const response = `🕒 *Current Time*\n\n📅 *Date:* ${now.toLocaleDateString()}\n🕰️ *Time:* ${now.toLocaleTimeString()}`;
@@ -543,6 +543,7 @@ export default function startGroupHandler(sock) {
                     return;
                 }
 
+                */
                 //Other funy commands
                 if (text.trim() === "hello" || text.trim() === "hi" || text.trim() === "hey" || text.trim() === "hellow") {
                     const response_en = "👋 Hello! We are allways togather \nWatching💬 messages if there any command included...";
@@ -560,32 +561,86 @@ export default function startGroupHandler(sock) {
                 }
 
                 //Joke
-                if (text.includes("joke")) {
-                    const response = "😂 Hii ni joke ya bot!";
-                    reply(response);
-                    return;
-                } 
-            
+                /*
                 if (text.includes("dice") || text.includes("roll")) {
                     const roll = Math.floor(Math.random() * 9) + 1;
                     const response = `🎲 You rolled a ${roll}`;
-                    reply(response);
+                    reply(response, response);
                     return;
                 }
 
                 if (text.includes("coin")) {
                     const toss = Math.random() < 0.5 ? "Heads" : "Tails";
                     const response = `🪙 Coin toss: ${toss}`;
-                    reply(response);
+                    reply(response, response);
                     return;
                 }
-
+                */
                 //Ping for ping network
                 if (text.includes("ping")) {
                     const latency = Date.now() - pingStart;
-                    const response_en = `\n╭──────────────────╮\n│       📶 *PING STATUS* STAT       │\n╰──────────────────╯\n ⏱️ Latency: ${latency}ms`;
-                    reply(response);
+                    const response_en = `\n╭──────────────────╮\n│       📶 *PING STATUS*       │\n╰──────────────────╯\n ⏱️ Latency: ${latency}ms`;
+                    reply(response_en, response_en);
                     return;
+                }
+
+                if (text.includes("menu") || text.includes("help") || text.includes("msaada")) {
+                    //Menu list in english mode and swahili mode
+                    const english = `
+                    \n╭──────────────────╮\n│       📋 *ROLLBOY BOT MENU*       │\n╰──────────────────╯ \n 
+                    1. *addmember <number>* - Add member to group\n
+                    2. *removemember <number>* - Remove member from group\n
+                    3. *groupinfo* - Show group information\n
+                    4. *botinfo* - Show bot information\n
+                    5. *botowner* - Show bot owner information\n
+                    6. *tagall* - Tag all members in the group\n
+                    7. *post <message>* - Post a message tagging all members without showing tags\n
+                    8. *ping* - Check bot latency\n
+                    9. *help* - Show this menu\n
+                    10. *inbox* - Get bot to message you in your inbox\n
+                    11. *whoadmins* - Show list of group admins\n
+                    12. *group owner* - Show group owner information\n
+                    13. *setpublic* - Set bot to public mode (anyone can use)\n
+                    14. *setprivate* - Set bot to private mode (only owner can use)\n
+                    15. *setadmin* - Set bot to admin mode (only admins can use)\n
+                    16. *allow-admin-control* - Allow admins to change bot privacy mode\n
+                    17. *disallow-admin-control* - Disallow admins from changing bot privacy mode\n
+                    18. *on reply* - Activate bot reply to command messages\n
+                    19. *off reply* - Deactivate bot reply to command messages\n
+                    20. *to swahili* - Set bot response language to Swahili\n
+                    21. *to english* - Set bot response language to English\n
+                    22. *antlink-on* - Activate anti-link feature in group\n
+                    23. *antlink-off* - Deactivate anti-link feature in group\n
+                    `
+                    const swahili = `
+                    \n╭──────────────────╮\n│       📋 *ROLLBOY BOT MENU*       │\n╰──────────────────╯ \n
+                    1. *ongeza mwanachama <nambari>* - Ongeza mwanachama kwenye kikundi\n
+                    2. *ondoa mwanachama <nambari>* - Ondoa mwanachama kutoka kikundi\n
+                    3. *habari za kikundi* - Onyesha habari za kikundi\n
+                    4. *habari za bot* - Onyesha habari za bot\n
+                    5. *mmiliki wa bot* - Onyesha habari za mmiliki wa bot\n
+                    6. *tagall* - Mtaja wanachama wote kwenye kikundi\n
+                    7. *post <ujumbe>* - Tuma ujumbe ukitaja wanachama wote bila kuonyesha tag\n
+                    8. *ping* - Angalia latency ya bot\n
+                    9. *msaada* - Onyesha menyu hii\n
+                    10. *inbox* - Pata bot ikutumie ujumbe kwenye inbox yako\n
+                    11. *whoadmins* - Onyesha orodha ya wasimamizi wa kikundi\n
+                    12. *mmiliki wa kikundi* - Onyesha habari za mmiliki wa kikundi\n
+                    13. *setpublic* - Weka bot kwenye mode ya hadharani (kila mtu anaweza kutumia)\n
+                    14. *setprivate* - Weka bot kwenye mode ya kibinafsi (mmiliki peke yake anaweza kutumia)\n
+                    15. *setadmin* - Weka bot kwenye mode ya admin (wasimamizi peke yao wanaweza kutumia)\n
+                    16. *allow-admin-control* - Ruhusu wasimamizi kubadilisha mode ya faragha ya bot\n
+                    17. *disallow-admin-control* - Zuia wasimamizi kubadilisha mode ya faragha ya bot\n
+                    18. *on reply* - Wezesha bot kujibu jumbe zenye amri\n
+                    19. *off reply* - Zima bot kujibu jumbe zenye amri\n
+                    20. *to swahili* - Weka lugha ya majibu ya bot kuwa Kiswahili\n
+                    21. *to english* - Weka lugha ya majibu ya bot kuwa Kiingereza\n
+                    22. *antlink-on* - Wezesha kipengele cha anti-link kwenye kikundi\n
+                    23. *antlink-off* - Zima kipengele cha anti-link kwenye kikundi\n
+                    `
+                    const response_en = cleanWhite(english + getMenu("en"));
+                    const response_sw = cleanWhite(swahili + getMenu("sw"));
+                    reply(response_en, response_sw)
                 }
 
                 if (text === "") {
@@ -603,9 +658,9 @@ export default function startGroupHandler(sock) {
                 }
             } else {
                 await sock.sendMessage(groupId, { react: {text: "👋", key: msg.key} });
-                console.error("Error when reacting in a message", e)
                 return;
             }
+                
         } catch (e) {
             console.error("Error in message upsert: ", e);
         }

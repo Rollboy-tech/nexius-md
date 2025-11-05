@@ -1,10 +1,6 @@
 import fs from 'fs';
 const services = JSON.parse(fs.readFileSync('./data/services.json', 'utf-8'));
-import settings from './settings.js';
-
 export default function startInboxHandler(sock) {
-    // Track active users with their time out.
-    let activeUsers = {};
 
     // Prevent repeeting message
     const processedMessages = new Set();
@@ -20,10 +16,8 @@ export default function startInboxHandler(sock) {
             const sent = msg.message.conversation || msg.message.extendedTextMessage?.text || "";
             if(!from || !sent) return;
             const text = sent.toLowerCase().trim();
-            let state = '1';
 
             async function sendReply(jid, message, text) {
-                console.log(`Message from ${jid}, Text is ${text}, text length is ${message.length}`)
                 try {
                     await new Promise((resolve) => setTimeout(resolve, 3000));
                     await sock.readMessages([msg.key]);
@@ -33,25 +27,14 @@ export default function startInboxHandler(sock) {
                     await sock.sendMessage(jid, { text: message });
                     await sock.sendPresenceUpdate("paused", jid);
                 } catch (e) {
-
+                    console.error("Error: ", e)
                 }
             }
             
-            if (text.trim() === "habari") {
-                const resw = "";
-                const reen = "";
+            if (text) {
+                const response = "Habari yako 👋! \nNakukalibisha Rollboy Services!\n> Mimi ni *WhatsApp* chatbot sina uwezo wa kuelewa lugha ya binadamu moja kwa moja kwasasa, Ninachoweza kufanya ninachoweza ni kudhibiti tu makundi ya WhatsApp!\nTafadhari wasiliana na muhudumu wetu moja kwa moja kwa namba 📲 +255 787 885 020 \n\nUnaweza kuwasiliana nae kwa WhatsApp sms au hata call \n\n> Rollboy Technologies ♻";
                 sendReply(from, response, text);
                 return;
-            }
-
-            if (text === 'mambo') {
-                const response = 'Poah mzima';
-                sendReply(from, response, text)
-                return;
-            }
-
-            if (text) {
-                const response = `Sorry`
             }
         } catch (e) {
             console.error("Error during prossesing private message: ", e)

@@ -4,3 +4,4 @@ model/
 node_modules/
 
 .env
+eg.js
